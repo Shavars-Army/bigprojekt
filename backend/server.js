@@ -21,7 +21,16 @@ app.get('/api/data', (req, res) => {
         res.json(rows);
     });
 });
-
+app.post('/api/data1', (req, res) => {
+    mysqlConnection.query('INSERT INTO databasesql.test (id, user) VALUES (4, "ameni")', (err, rows) => {
+        if (err) {
+            console.error('Error querying MySQL: ' + err.stack);
+            res.status(500).send('Database query error');
+            return;
+        }
+        res.json("erfolgreich");
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
