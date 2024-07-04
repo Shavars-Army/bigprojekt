@@ -1,0 +1,127 @@
+/* Containerul principal al paginii About */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrăm conținutul orizontal */
+  width: 100%;
+}
+
+/* Stilurile generale ale secțiunii */
+.section {
+  padding: 50px;
+  color: black;
+  display: flex;
+  flex-direction: column; /* Aliniere verticală */
+  align-items: center; /* Centrăm conținutul pe axa orizontală */
+  width: 100%; /* Asigură că secțiunea ocupă toată lățimea */
+}
+
+/* Alinierea textului în secțiunea one */
+.section-one {
+  text-align: center;
+  width: 100%; /* Asigură că secțiunea ocupă toată lățimea */
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover; /* Fundal imagine original */
+  position: relative; /* Necesare pentru plasarea absolută a punctelor */
+  color: white; /* Text alb */
+}
+
+/* Stilurile secțiunilor two, three și four */
+.section-two, .section-three, .section-four, .section-five {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrăm conținutul */
+  flex-wrap: wrap; /* Permite elementelor să se alinieze pe verticală dacă e nevoie */
+  width: 100%; /* Asigură că secțiunea ocupă toată lățimea */
+  max-width: 1200px; /* Limitează lățimea maximă */
+  margin: 0 auto; /* Asigură că secțiunea este centrată */
+}
+
+/* Stilurile conținutului din secțiunile two, three și four */
+.section-two .content, .section-three .content, .section-four .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap; /* Permite elementelor să se alinieze pe verticală dacă e nevoie */
+}
+
+/* Stilurile imaginilor */
+.section-two .image-left, .section-three .image-right, .section-four .image-left {
+  width: 45%; /* Ajustează lățimea imaginii */
+  height: auto;
+  max-width: 100%; /* Asigură că imaginea nu depășește containerul */
+}
+
+/* Stilurile textului */
+.section-two .text-right, .section-three .text-left, .section-four .text-right {
+  width: 45%; /* Ajustează lățimea textului */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding în dimensiuni */
+  text-align: left;
+}
+
+/* Stilurile secțiunii five */
+.section-five {
+  text-align: center;
+  width: 100%;
+}
+
+.section-five .images-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* Spațiu între imagini */
+  margin-top: 0px;
+}
+
+.section-five .images-container img {
+  width: 100%;
+  max-width: 600px; /* Ajustează lățimea maximă a imaginii */
+  height: auto;
+  object-fit: cover;
+}
+
+/* Media queries pentru ecrane mici */
+@media (max-width: 768px) {
+  .section-two .image-left, .section-three .image-right, .section-four .image-left,
+  .section-two .text-right, .section-three .text-left, .section-four .text-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-two .content, .section-three .content, .section-four .content {
+    flex-direction: column; /* Elemente aliniate pe verticală */
+  }
+
+  .section-two .image-left, .section-three .image-right, .section-four .image-left {
+    margin-bottom: 20px; /* Spațiu între imagine și text */
+  }
+}
+
+/* Stiluri pentru liste și butoane */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  color: white;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.25s, color 0.25s;
+  margin-top: 10px; /* Adăugat pentru a crea spațiu între butoane */
+}
+
+.custom-button:hover {
+  background-color: darkblue;
+  color: lightgray;
+}
