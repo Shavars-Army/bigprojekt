@@ -1,0 +1,15 @@
+/* Home.css */
+.user-name {
+    font-size: 24px;
+    color: red; /* Pink color */
+    font-family: Arial, sans-serif; /* Example font family */
+    font-style: italic; /* Italic font style */
+    font-weight: bold; /* Example bold font weight */
+}
+
+h1 {
+    text-align: center; /* Center align the heading */
+    margin-top: 20px; /* Add margin at the top */
+    font-size: 28px; /* Example font size for the heading */
+    color: #1a1a1a; /* Dark gray text color */
+}
