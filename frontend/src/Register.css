@@ -1,0 +1,95 @@
+/* General form styles */
+.form-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  /* Register heading styles */
+.h1-design {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Converts text to uppercase */
+  font-weight: bold; /* Makes the text bold */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  letter-spacing: 1px; /* Increases letter spacing */
+}
+
+  /* Input container styles */
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .input-container label {
+    flex: 1; /* Grow to take remaining space */
+    margin-right: 10px; /* Adjust spacing between label and input */
+  }
+  
+  /* Password container styles */
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .password-container label {
+    flex: 1; /* Grow to take remaining space */
+    margin-right: 10px; /* Adjust spacing between label and input */
+  }
+  
+  /* Input styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    flex: 2; /* Take 2/3 of the available space */
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Label styles */
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+    display: block;
+  }
+  
+  /* Button styles */
+  button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Password toggle button styles */
+  .toggle-password {
+    position: absolute;
+    right: 10px; /* Adjust this value to position the button where you want */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  

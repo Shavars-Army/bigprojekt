@@ -1,0 +1,64 @@
+.section {
+    padding: 50px;
+    color: black;
+  }
+  
+  .section-one {
+    text-align: center;
+  }
+  
+  .section-two, .section-three {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Pentru a se adapta pe ecrane mici */
+  }
+  
+  .section-two .content, .section-three .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .section-two .image-left, .section-three .image-right {
+    width: 45%; /* Ajustează lățimea imaginii */
+    height: auto;
+  }
+  
+  .section-two .text-right, .section-three .text-left {
+    width: 45%; /* Ajustează lățimea textului */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding în dimensiuni */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: grey;
+  }
+  
+  /* Stiluri pentru ecrane mici */
+  @media (max-width: 768px) {
+    .section-two .image-left, .section-three .image-right,
+    .section-two .text-right, .section-three .text-left {
+      width: 100%;
+      text-align: center;
+    }
+  }
+    
