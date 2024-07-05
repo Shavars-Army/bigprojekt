@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CognitoUser, AuthenticationDetails, CognitoUserPool } from "amazon-cognito-identity-js";
 import { useNavigate } from "react-router-dom";
-import "./Register.css";
+import "./Signin.css";
 
 const poolData = {
   UserPoolId: "eu-central-1_u1EUpgENY",
@@ -10,9 +10,10 @@ const poolData = {
 
 const userPool = new CognitoUserPool(poolData);
 
-function Signin({ setUser }) {
+const Signin = ({ setUser }) => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [Name, setName] = useState("");
   const navigate = useNavigate();
 
   const handleSignIn = async () => {
@@ -33,9 +34,30 @@ function Signin({ setUser }) {
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         console.log("Authentication success:", result);
-        alert("Login successful!");
-        setUser(Email); // Set the user state to the email
-        navigate('/'); // Redirect to home page after successful login
+
+        // Fetch user attributes after successful authentication
+        cognitoUser.getUserAttributes((err, attributes) => {
+          if (err) {
+            console.error("Error fetching user attributes:", err);
+            return;
+          }
+
+          // Extract and set user name from attributes
+          const userAttributes = {};
+          for (let attribute of attributes) {
+            userAttributes[attribute.getName()] = attribute.getValue();
+          }
+
+          // Set user name in state or pass to parent component
+          setUser(Name);
+
+          // Save email in local storage
+          localStorage.setItem("userEmail", Email);
+
+          alert("Login successful!");
+          alert(Email)
+          navigate('/'); // Redirect to home page after successful login
+        });
       },
       onFailure: (err) => {
         console.error("Authentication failure:", err);
@@ -49,7 +71,17 @@ function Signin({ setUser }) {
       <h1 className="h1-design">Sign In to Your Account</h1>
       <div className="form-container">
         <div className="input-container">
-          <label htmlFor="email">Name:</label>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={Name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -74,6 +106,6 @@ function Signin({ setUser }) {
       </div>
     </>
   );
-}
+};
 
 export default Signin;

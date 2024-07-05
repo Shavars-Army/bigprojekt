@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
+import { useNavigate } from "react-router-dom";
 
 function MyNavbar({ user, setUser }) {
     const [showSubMenu, setShowSubMenu] = useState(false);
     const timeoutRef = useRef(null);
+    const navigate = useNavigate();
 
     const handleMouseEnter = () => {
         if (timeoutRef.current) {
@@ -42,7 +44,8 @@ function MyNavbar({ user, setUser }) {
     }, []);
 
     const handleLogout = () => {
-        setUser(null); // Clear the user state on logout
+        setUser(null); 
+        navigate('/'); // Clear the user state on logout
     };
 
     return (
