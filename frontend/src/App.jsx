@@ -18,6 +18,36 @@ import Zahlungsverlauf from './components/Zahlungsverlauf';
 
 
 import './App.css';// 040724//
+function DarkMode() {
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'enabled') {
+      setDarkMode(true);
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  };
+  return (
+    <div className="DarkMode">
+      <header className="App-header">
+        <h1>Meine Website</h1>
+        <p>Dies ist ein Beispieltext.</p>
+      </header>
+      <Footer onToggleTheme={toggleDarkMode} />
+    </div>
+  );
+}
+
 function App() {
     const [data, setData] = useState([]);
 
@@ -60,40 +90,12 @@ function App() {
                     ))}
                 </ul>
             </div>
-            <Footer />
+             <DarkMode/> 
+            {/* <Footer/> */}
         </Router>
     );
 }
 export default App;
 
 // 040724//
-function DarkMode() {
-    const [darkMode, setDarkMode] = useState(false);
-    useEffect(() => {
-      const savedMode = localStorage.getItem('darkMode');
-      if (savedMode === 'enabled') {
-        setDarkMode(true);
-        document.body.classList.add('dark-mode');
-      }
-    }, []);
-    const toggleDarkMode = () => {
-      setDarkMode(!darkMode);
-      if (!darkMode) {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', 'disabled');
-      }
-    };
-    return (
-      <div className="DarkMode">
-        <header className="App-header">
-          <h1>Meine Website</h1>
-          <p>Dies ist ein Beispieltext.</p>
-        </header>
-        <Footer onToggleTheme={toggleDarkMode} />
-      </div>
-    );
-  }
 

@@ -41,9 +41,48 @@
   color: #888;
 }
 
-
+/*040724*/
 
  
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+.App-header {
+  text-align: center;
+  padding: 50px;
+}
+
+Footer.css
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+.footer-content {
+  max-width: 800px;
+  margin: auto;
+}
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+}
+body.dark-mode .footer {
+  background-color: #333;
+}
 
 
 
