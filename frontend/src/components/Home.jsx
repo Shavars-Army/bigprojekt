@@ -83,7 +83,7 @@ const Home = ({ user }) => {
       <h2>Your Conferences</h2>
       <ul>
         {data.map(item => (
-          item.participant_email === userEmail && user && (
+          item.participant_email === userEmail && (
             <li key={item.id}>
               ID: {item.id} <br />
               Description: {item.description} <br />
@@ -100,7 +100,7 @@ const Home = ({ user }) => {
       </ul>
       <h2>Calendar View</h2>
       <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-     { user && ( <Calendar
+        <Calendar
           onChange={onChangeDate}
           value={selectedDate}
           tileClassName={({ date }) =>
@@ -126,7 +126,7 @@ const Home = ({ user }) => {
             }
           }}
           className={calendarStyles.calendar}
-        />)}
+        />
       </div>
 
       {/* Event Modal */}

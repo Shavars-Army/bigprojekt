@@ -45,6 +45,8 @@ function MyNavbar({ user, setUser }) {
 
     const handleLogout = () => {
         setUser(null); 
+        //localStorage.removeItem('userEmail');
+        localStorage.removeItem('userEmail');
         navigate('/'); // Clear the user state on logout
     };
 

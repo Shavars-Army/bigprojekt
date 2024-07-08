@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Modal, Button } from 'react-bootstrap';
 
-const Home = ({ user }) => {
+const Conference = ({ user }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userEmail, setUserEmail] = useState('');
@@ -77,9 +77,7 @@ const Home = ({ user }) => {
 
   return (
     <div>
-      <div>
-        <h1>Welcome to the Home Page, <span className="user-name">{user}</span>!</h1>
-      </div>
+      
       <h2>Your Conferences</h2>
       <ul>
         {data.map(item => (
@@ -158,4 +156,4 @@ const Home = ({ user }) => {
   );
 };
 
-export default Home;
+export default Conference;
