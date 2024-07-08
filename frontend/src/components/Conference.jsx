@@ -12,6 +12,7 @@ const Conference = ({ user }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showCreateForm, setShowCreateForm] = useState(false);
+  const [search, setSearch] = useState("");
   const [newConference, setNewConference] = useState({
     name: '',
     description: '',
@@ -48,6 +49,7 @@ const Conference = ({ user }) => {
       }));
 
       setData(modifiedData);
+      alert(data[10].participant_email)
       setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -127,6 +129,7 @@ const Conference = ({ user }) => {
       console.error('Error creating conference:', error);
     }
   };
+ 
 
   if (loading) {
     return <div>Loading...</div>;
@@ -209,8 +212,32 @@ const Conference = ({ user }) => {
       ) : (
         <div className="sidebar">
           <button onClick={openCreateForm}>Create Conference</button>
-          <button>Search Conference</button>
-        </div>
+          <label>
+              Search by Name/Description:
+              <input type="text" name="" value={search}onChange={(e) => setSearch(e.target.value)} required />
+            </label>
+         
+          <div> <ol>
+          {data.map(item => (
+  (search && (item.description.toLowerCase().includes(search.toLowerCase()) || item.name.toLowerCase().includes(search.toLowerCase())))  && item.participant_email === userEmail && (
+    <li key={item.id} className="conference-item">
+      <div className="conference-details">
+      <span><strong>Name:</strong> {item.name}</span><br />
+        <span><strong>Description:</strong> {item.description}</span><br />
+        <span><strong>Start Date:</strong> {new Date(item.startdate).toLocaleDateString()}</span><br />
+        <span><strong>End Date:</strong> {new Date(item.enddate).toLocaleDateString()}</span><br />
+        <span><strong>Start Time:</strong> {item.starttime}</span><br />
+        <span><strong>End Time:</strong> {item.endtime}</span><br />
+        <span><strong>Location:</strong> {item.location}</span><br />
+        <span><strong>Link:</strong> <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></span><br />
+        <span><strong>Participant Email:</strong> {item.participant_email}</span><br />
+      </div>
+    </li>
+  )
+))}
+
+        </ol> </div>
+                  </div>
       )}
       <div>
         <hr></hr>
@@ -222,6 +249,7 @@ const Conference = ({ user }) => {
             item.participant_email === userEmail && (
               <li key={item.id} className="conference-item">
                 <div className="conference-details">
+                <span><strong>Name:</strong> {item.name}</span><br />
                   <span><strong>Description:</strong> {item.description}</span><br />
                   <span><strong>Start Date:</strong> {new Date(item.startdate).toLocaleDateString()}</span><br />
                   <span><strong>End Date:</strong> {new Date(item.enddate).toLocaleDateString()}</span><br />

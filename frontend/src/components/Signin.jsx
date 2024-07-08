@@ -55,7 +55,7 @@ const Signin = ({ setUser }) => {
           localStorage.setItem("userEmail", Email);
 
           alert("Login successful!");
-          alert(Email)
+         //alert(Email)
           navigate('/'); // Redirect to home page after successful login
         });
       },
