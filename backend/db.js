@@ -3,10 +3,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'bigprojectdb.cbupira9p1gb.eu-central-1.rds.amazonaws.com',
+    host: 'database-1.ch8iakcmiwic.eu-central-1.rds.amazonaws.com',
     user: 'admin',
     password: 'PartyKeller23!?',
-    database: 'databasesql'
+    database: 'databank'
 });
 
 connection.connect((err) => {
