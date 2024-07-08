@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 
     // Assuming participant_emails is an array of strings
     participant_emails.forEach(email => {
-        mysqlConnection.query(query, [name, description, startdate, enddate, starttime, endtime, location, link, participant_emails], (err, result) => {
+        mysqlConnection.query(query, [name, description, startdate, enddate, starttime, endtime, location, link, email], (err, result) => {
             if (err) {
                 console.error('Error inserting conference:', err);
                 res.status(500).send('Error inserting conference');
