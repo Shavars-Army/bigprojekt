@@ -47,7 +47,9 @@ function MyNavbar({ user, setUser }) {
         setUser(null); 
         //localStorage.removeItem('userEmail');
         localStorage.removeItem('userEmail');
-        navigate('/'); // Clear the user state on logout
+        
+         navigate('/'); 
+         window.location.reload();// Clear the user state on logout
     };
 
     return (

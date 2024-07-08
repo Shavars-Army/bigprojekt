@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Beispiel-Route, um Daten aus der Datenbank abzurufen
- app.get('/api/data', (req, res) => {
+ app.get('/api/conferences', (req, res) => {
      mysqlConnection.query('SELECT * FROM databank.Conference1', (err, rows) => {
          if (err) {
              console.error('Error querying MySQL: ' + err.stack);
@@ -21,6 +21,25 @@ app.use(bodyParser.json());
         res.json(rows);
     });
  });
+ app.post('/api/conferences', (req, res) => {
+    const { name, description, startdate, enddate, starttime, endtime, location, link, participant_emails } = req.body;
+
+    const query = 'INSERT INTO databank.Conference1 (name, description, startdate, enddate, starttime, endtime, location, link, participant_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+    // Assuming participant_emails is an array of strings
+    participant_emails.forEach(email => {
+        mysqlConnection.query(query, [name, description, startdate, enddate, starttime, endtime, location, link, email], (err, result) => {
+            if (err) {
+                console.error('Error inserting conference:', err);
+                res.status(500).send('Error inserting conference');
+                return;
+            }
+            console.log(`Inserted conference with email: ${email}`);
+        });
+    });
+
+    res.status(201).send('Conference inserted successfully');
+});
 
 // app.post('/api/data1', (req, res) => {
 //     mysqlConnection.query('INSERT INTO test (id, user) VALUES (3, "erik")', (err, result) => {

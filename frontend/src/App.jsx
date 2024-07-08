@@ -28,7 +28,7 @@ function App() {
             <MyNavbar user={user} setUser={setUser} /> {/* Pass user and setUser as props */}
             <Routes>
                 <Route path="/" element={<Home user={user} setUser={setUser}  />} /> {/* Add a route for the home page */}
-                <Route path="/conference" element={<Conference />} />
+                <Route path="/conference" element={<Conference user={user} setUser={setUser}  />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/benutzerkonto" element={<Benutzerkonto />} />
                 <Route path="/einstellungen" element={<Einstellungen />} />
