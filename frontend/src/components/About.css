@@ -1,64 +1,118 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .section {
-    padding: 50px;
-    color: black;
-  }
-  
-  .section-one {
+  padding: 50px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.section-one {
+  text-align: center;
+  width: 100%;
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  position: relative;
+  color: rgb(255, 255, 255);
+}
+
+.section-two, .section-three, .section-four, .section-five {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-two .content, .section-three .content, .section-four .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.section-two .image-left, .section-three .image-right, .section-four .image-left {
+  width: 45%;
+  height: auto;
+  max-width: 100%;
+}
+
+.section-two .text-right, .section-three .text-left, .section-four .text-right {
+  width: 45%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.section-five {
+  text-align: center;
+  width: 100%;
+}
+
+.section-five .images-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 0px;
+}
+
+.section-five .images-container img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .section-two .image-left, .section-three .image-right, .section-four .image-left,
+  .section-two .text-right, .section-three .text-left, .section-four .text-right {
+    width: 100%;
     text-align: center;
   }
-  
-  .section-two, .section-three {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Pentru a se adapta pe ecrane mici */
+
+  .section-two .content, .section-three .content, .section-four .content {
+    flex-direction: column;
   }
-  
-  .section-two .content, .section-three .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+
+  .section-two .image-left, .section-three .image-right, .section-four .image-left {
+    margin-bottom: 20px;
   }
-  
-  .section-two .image-left, .section-three .image-right {
-    width: 45%; /* Ajustează lățimea imaginii */
-    height: auto;
-  }
-  
-  .section-two .text-right, .section-three .text-left {
-    width: 45%; /* Ajustează lățimea textului */
-    padding: 20px;
-    box-sizing: border-box; /* Include padding în dimensiuni */
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  ul li {
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: grey;
-  }
-  
-  /* Stiluri pentru ecrane mici */
-  @media (max-width: 768px) {
-    .section-two .image-left, .section-three .image-right,
-    .section-two .text-right, .section-three .text-left {
-      width: 100%;
-      text-align: center;
-    }
-  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  color: white;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.25s, color 0.25s;
+  margin-top: 10px;
+}
+
+.custom-button:hover {
+  background-color: darkblue;
+  color: lightgray;
+}
     

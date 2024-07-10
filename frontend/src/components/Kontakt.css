@@ -1,0 +1,117 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.kontakt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  min-height: 100vh; /* Asigură că înălțimea minimă este de 100% */
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+}
+
+.section-one {
+  text-align: center;
+  width: 100%;
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  position: relative;
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+  min-height: 50vh; /* Ajustează după necesitate */
+}
+
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+  flex-grow: 1; /* Asigură că secțiunea crește pentru a umple spațiul disponibil */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-right: 2rem;
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+}
+
+form label {
+  margin-bottom: 0.5rem;
+}
+
+form input,
+form select,
+form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  color: white;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.25s, color 0.25s;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: darkblue;
+  color: lightgray;
+}
+
+.info-section {
+  width: 35%;
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+}
+
+.info-section p {
+  margin-bottom: 1rem;
+}
+
+.footer-section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box; /* Include padding-ul și border-ul în dimensiunile elementului */
+}
+
+.footer-column {
+  width: 30%;
+  text-align: center;
+}
+
+.footer-column h2 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column p,
+.footer-column a {
+  margin-bottom: 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+
+
+  
