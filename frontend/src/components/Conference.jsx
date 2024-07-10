@@ -49,7 +49,8 @@ const Conference = ({ user }) => {
       }));
 
       setData(modifiedData);
-      alert(data[10].participant_email)
+     // console.log(modifiedData)
+     // alert(data[10].participant_email)
       setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -98,7 +99,7 @@ const Conference = ({ user }) => {
 
   const handleCreateConference = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await fetch('http://localhost:3001/api/conferences', {
         method: 'POST',
@@ -107,14 +108,10 @@ const Conference = ({ user }) => {
         },
         body: JSON.stringify(newConference),
       });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      fetchData();
-      setShowCreateForm(false);
-      setNewConference({
+     //await  fetchData(); // Refresh conference data
+     
+      //setShowCreateForm(false); // Close the form
+      setNewConference({  // Reset form fields
         name: '',
         description: '',
         startdate: '',
@@ -125,12 +122,18 @@ const Conference = ({ user }) => {
         link: '',
         participant_emails: [],
       });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      alert("hallo")
+     
     } catch (error) {
       console.error('Error creating conference:', error);
+      // Add additional error handling as needed
     }
   };
- 
-
+  
   if (loading) {
     return <div>Loading...</div>;
   }
