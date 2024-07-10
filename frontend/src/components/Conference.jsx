@@ -251,25 +251,9 @@ const Conference = ({ user }) => {
         <hr></hr>
         <hr></hr>
         <hr></hr>
-        <h2>Your Conferences</h2>
+        
         <ol>
-          {data.map(item => (
-            item.participant_email === userEmail && (
-              <li key={item.id} className="conference-item">
-                <div className="conference-details">
-                <span><strong>Name:</strong> {item.name}</span><br />
-                  <span><strong>Description:</strong> {item.description}</span><br />
-                  <span><strong>Start Date:</strong> {new Date(item.startdate).toLocaleDateString()}</span><br />
-                  <span><strong>End Date:</strong> {new Date(item.enddate).toLocaleDateString()}</span><br />
-                  <span><strong>Start Time:</strong> {item.starttime}</span><br />
-                  <span><strong>End Time:</strong> {item.endtime}</span><br />
-                  <span><strong>Location:</strong> {item.location}</span><br />
-                  <span><strong>Link:</strong> <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></span><br />
-                  <span><strong>Participant Email:</strong> {item.participant_email}</span><br />
-                </div>
-              </li>
-            )
-          ))}
+          
         </ol>
         <h2>Calendar View</h2>
         <div className="calendar-container">

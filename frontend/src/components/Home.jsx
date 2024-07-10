@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import ConferenceTile from './ConferenceTile';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import "./Conference.css";
+import './Home.css';
 import { Modal, Button } from 'react-bootstrap';
 
 const Home = ({ user }) => {
@@ -23,6 +24,7 @@ const Home = ({ user }) => {
     link: '',
     participant_emails: [],
   });
+  const [viewConference, setViewConference] = useState(null); // State für die angezeigte Konferenz
 
   useEffect(() => {
     const storedEmail = localStorage.getItem('userEmail');
@@ -59,8 +61,8 @@ const Home = ({ user }) => {
   };
 
   const handleEventClick = event => {
-    setShowModal(true);
     setSelectedEvent(event);
+    setShowModal(true);
   };
 
   const closeModal = () => {
@@ -131,167 +133,70 @@ const Home = ({ user }) => {
     return <div>Loading...</div>;
   }
 
-  const calendarStyles = {
-    calendar: {
-      border: '1px solid #ccc',
-      borderRadius: '5px',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      backgroundColor: '#fff',
-    },
-    calendarEvent: {
-      backgroundColor: '#007bff',
-      color: '#fff',
-      borderRadius: '50%',
-      padding: '2px',
-    },
-  };
+  // Wenn ein Event ausgewählt ist, zeige die Detailansicht an
+  if (selectedEvent) {
+    return (
+      <div className="home-container">
+        <div>
+        <hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr><hr></hr>
+          <hr></hr>
+          <hr></hr>
+          <hr></hr></div>
+        <div className="welcome-message">
+         <div>
+          <hr></hr></div> 
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-      {showCreateForm ? (
-        <div className="create-form">
-          <h2>Create Conference</h2>
-          <form onSubmit={handleCreateConference}>
-            <label>
-              Name:
-              <input type="text" name="name" value={newConference.name} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Description:
-              <textarea name="description" value={newConference.description} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Start Date:
-              <input type="date" name="startdate" value={newConference.startdate} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              End Date:
-              <input type="date" name="enddate" value={newConference.enddate} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Start Time:
-              <input type="time" name="starttime" value={newConference.starttime} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              End Time:
-              <input type="time" name="endtime" value={newConference.endtime} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Location:
-              <input type="text" name="location" value={newConference.location} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Link:
-              <button>Generate Link</button>
-              <input type="url" name="link" value={newConference.link} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <label>
-              Participants (comma-separated):
-              <input type="text" name="participant_emails" value={newConference.participant_emails.join(', ')} onChange={handleInputChange} required />
-            </label>
-            <br />
-            <button type="submit">Create</button>
-          </form>
-          <button onClick={closeCreateForm}>Close</button>
+          <h1>Welcome to the Home Page, <span className="user-name">{user}!</span></h1>
         </div>
-      ) : (
-        <div >
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
+        <div className="conference-details">
+          <h2>Conference Details</h2>
+          <p><strong>Name:</strong> {selectedEvent.name}</p>
+          <p><strong>Start Date:</strong> {selectedEvent.startdate.toLocaleDateString()}</p>
+          <p><strong>End Date:</strong> {selectedEvent.enddate.toLocaleDateString()}</p>
+          <p><strong>Start Time:</strong> {selectedEvent.starttime}</p>
+          <p><strong>End Time:</strong> {selectedEvent.endtime}</p>
+          <p><strong>Description:</strong> {selectedEvent.description}</p>
+          <p><strong>Location:</strong> {selectedEvent.location}</p>
+          <p><strong>Link:</strong> {selectedEvent.link}</p>
+        
           
-          <div>
-            <hr></hr>
-            <hr></hr>
-            <h1>Welcome to home page <p className='user-name'>{user} !</p> </h1>
-            <hr />
-          <h2>Your Conferences</h2></div>
-          <ol>
-            {data.map(item => (
-              item.participant_email === userEmail && (
-                <li key={item.id} className="conference-item">
-                <div className="conference-details">
-               <span><strong>Name:</strong> {item.name}</span><br />
-                  <span><strong>Description:</strong> {item.description}</span><br />
-                  <span><strong>Start Date:</strong> {new Date(item.startdate).toLocaleDateString()}</span><br />
-                  <span><strong>End Date:</strong> {new Date(item.enddate).toLocaleDateString()}</span><br />
-                  <span><strong>Start Time:</strong> {item.starttime}</span><br />
-                  <span><strong>End Time:</strong> {item.endtime}</span><br />
-                  <span><strong>Location:</strong> {item.location}</span><br />
-                  <span><strong>Link:</strong> <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></span><br />
-                  <span><strong>Participant Email:</strong> {item.participant_email}</span><br />
-                </div>
-              </li>
-              
-              )
-            ))}
-          </ol>
-          <h2>Calendar View</h2>
-          <div className="calendar-container">
-            <Calendar
-              onChange={onChangeDate}
-              value={selectedDate}
-              tileClassName={({ date }) =>
-                data.some(item => item.participant_email === userEmail && date >= new Date(item.startdate) && date <= new Date(item.enddate))
-                  ? 'calendar-event'
-                  : null
-              }
-              tileContent={({ date, view }) =>
-                view === 'month' &&
-                data.some(item => item.participant_email === userEmail && date >= new Date(item.startdate) && date <= new Date(item.enddate)) && (
-                  <p>Event</p>
-                )
-              }
-              onClickDay={(value, event) => {
-                const eventsOnDay = data.filter(
-                  item =>
-                    item.participant_email === userEmail &&
-                    value >= new Date(item.startdate) &&
-                    value <= new Date(item.enddate)
-                );
-                if (eventsOnDay.length > 0) {
-                  handleEventClick(eventsOnDay[0]);
-                }
-              }}
-              className={calendarStyles.calendar}
-            />
-          </div>
-
-          {/* Event Modal */}
-          <Modal show={showModal} onHide={closeModal}>
-            <Modal.Header closeButton>
-              <Modal.Title>Event Details</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {selectedEvent && (
-                <>
-                  <p><strong>Name:</strong> {selectedEvent.name}</p>
-                  <p><strong>Start:</strong> {selectedEvent.startdate.toLocaleDateString()}</p>
-                  <p><strong>End:</strong> {selectedEvent.enddate.toLocaleDateString()}</p>
-                  <p><strong>Start:</strong> {selectedEvent.starttime}</p>
-                  <p><strong>End:</strong> {selectedEvent.endtime}</p>
-                  <p><strong>Description:</strong> {selectedEvent.description}</p>
-                  <p><strong>Link:</strong> <a href={selectedEvent.link} target="_blank" rel="noopener noreferrer">{selectedEvent.link}</a></p>
-                  <p><strong>Location:</strong> {selectedEvent.location}</p>
-                </>
-              )}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={closeModal}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
-      )}
+      </div>
+    );
+  }
+
+  // Standardansicht mit Konferenzkacheln und Kalender
+  return (
+    <div className="home-container">
+      <div className="welcome-message">
+        <h1>Welcome to the Home Page, <span className="user-name">{user}!</span></h1>
+      </div>
+      <div className="conferences-container">
+        {data.map((item) => (
+          item.participant_email === userEmail && (
+            <div key={item.id} className="conference-item" >
+              <h3>{item.name}</h3>
+              <p><strong>Start:</strong> {item.startdate.toLocaleDateString()}</p>
+              <p><strong>End:</strong> {item.enddate.toLocaleDateString()}</p>
+              <p><strong>Location:</strong> {item.location}</p>
+      <p><strong>Link:</strong> <a href={item.link} target="_blank" rel="noopener noreferrer">{item.link}</a></p>
+      <p><strong>Participant Email:</strong> {item.participant_email}</p>
+            </div>
+          )
+        ))}
+      </div>
+      <div className="calendar-container">
+       
+        
+      </div>
+
     </div>
   );
 };

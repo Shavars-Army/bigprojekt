@@ -1,94 +1,48 @@
-/* Conference.css */
-
-.create-form {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.create-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.create-form form {
-  display: grid;
-  grid-gap: 10px;
-}
-
-.create-form label {
-  display: block;
-  font-weight: bold;
-}
-
-.create-form input[type="text"],
-.create-form input[type="url"],
-.create-form input[type="date"],
-.create-form input[type="time"],
-.create-form textarea {
-  width: calc(100% - 20px);
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.create-form textarea {
-  resize: vertical;
-}
-
-.create-form button[type="submit"],
-.create-form button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.create-form button[type="submit"]:hover,
-.create-form button:hover {
-  background-color: #0056b3;
-}
-
-.create-form button[type="submit"] {
-  width: 100%;
-}
-
-.create-form button {
-  margin-right: 10px;
-}
-
-.create-form button:last-child {
-  margin-right: 0;
+.conference-container {
+  display: flex;
 }
 
 .sidebar {
-  width: 200px;
-  padding: 10px;
-  background-color: #f2f2f2;
+  width: 20%;
+  padding: 20px;
+  padding-top: 80px;
+  border-right: 1px solid #ccc;
+}
+
+.create-form {
+  width: 80%;
+  padding: 20px;
+}
+
+.main-content {
+  width: 80%;
+  padding: 20px;
+}
+
+.conferences-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.conference-item {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 20px;
+  border-radius: 8px;
+  padding: 16px;
+  width: calc(50% - 20px); /* Adjusted width for two items with gap */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
 }
 
-.sidebar button {
-  display: block;
+.calendar-container {
+  margin-top: 20px;
+}
+
+.calendar {
   width: 100%;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.sidebar button:hover {
-  background-color: #0056b3;
+.calendar-event {
+  background-color: #add8e6; /* Example background color for events */
 }
-
-/* Adjustments for other elements can be added as needed */
