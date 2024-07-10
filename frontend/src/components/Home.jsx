@@ -219,6 +219,7 @@ const Home = ({ user }) => {
               item.participant_email === userEmail && (
                 <li key={item.id} className="conference-item">
                 <div className="conference-details">
+               <span><strong>Name:</strong> {item.name}</span><br />
                   <span><strong>Description:</strong> {item.description}</span><br />
                   <span><strong>Start Date:</strong> {new Date(item.startdate).toLocaleDateString()}</span><br />
                   <span><strong>End Date:</strong> {new Date(item.enddate).toLocaleDateString()}</span><br />

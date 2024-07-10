@@ -1,6 +1,6 @@
 
 
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host: 'database-1.ch8iakcmiwic.eu-central-1.rds.amazonaws.com',

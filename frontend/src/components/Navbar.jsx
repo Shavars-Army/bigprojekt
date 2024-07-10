@@ -4,9 +4,11 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
+import Nachrichten from './Nachrichten'; // Importieren Sie Ihre Nachrichten-Komponente hier
 
 function MyNavbar({ user, setUser }) {
     const [showSubMenu, setShowSubMenu] = useState(false);
+    const [newEmailNotification, setNewEmailNotification] = useState(false); // State für Benachrichtigung über neue E-Mails
     const timeoutRef = useRef(null);
     const navigate = useNavigate();
 
@@ -45,11 +47,9 @@ function MyNavbar({ user, setUser }) {
 
     const handleLogout = () => {
         setUser(null); 
-        //localStorage.removeItem('userEmail');
         localStorage.removeItem('userEmail');
-        
-         navigate('/'); 
-         window.location.reload();// Clear the user state on logout
+        navigate('/'); // Zurück zur Startseite navigieren
+        window.location.reload(); // Seite aktualisieren, um den Benutzerzustand zu löschen
     };
 
     return (
@@ -84,7 +84,8 @@ function MyNavbar({ user, setUser }) {
                     >
                         <NavDropdown.Item as={Link} to="/benutzerkonto" className="page-scroll">Benutzerkonto</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/zahlungsverlauf" className="page-scroll">Zahlungsverlauf</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/nachrichten" className="page-scroll">Nachrichten</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/nachrichten" className="page-scroll">Nachrichten {newEmailNotification && <span className="notification-badge">1</span>}</NavDropdown.Item>
+                        {/* Anzeige der Benachrichtigung, wenn neue E-Mails vorhanden sind */}
                         <NavDropdown.Item as={Link} to="/einstellungen" className="page-scroll">Einstellungen</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>

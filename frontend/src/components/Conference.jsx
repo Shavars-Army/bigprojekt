@@ -14,6 +14,7 @@ const Conference = ({ user }) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [search, setSearch] = useState("");
   const [newConference, setNewConference] = useState({
+    organisator :"",
     name: '',
     description: '',
     startdate: '',
@@ -108,9 +109,9 @@ const Conference = ({ user }) => {
         },
         body: JSON.stringify(newConference),
       });
-     //await  fetchData(); // Refresh conference data
+     await  fetchData(); // Refresh conference data
      
-      //setShowCreateForm(false); // Close the form
+      setShowCreateForm(false); // Close the form
       setNewConference({  // Reset form fields
         name: '',
         description: '',
@@ -126,7 +127,7 @@ const Conference = ({ user }) => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      alert("hallo")
+     // alert("hallo")
      
     } catch (error) {
       console.error('Error creating conference:', error);
@@ -162,6 +163,10 @@ const Conference = ({ user }) => {
         <hr></hr>
           <h2>Create Conference</h2>
           <form onSubmit={handleCreateConference}>
+          <label>
+              Organisator:
+              <input type="text" name="organisator" value={newConference.organisator} onChange={handleInputChange} required />
+            </label>
             <label>
               Name:
               <input type="text" name="name" value={newConference.name} onChange={handleInputChange} required />
