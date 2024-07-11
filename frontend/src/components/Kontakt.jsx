@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Kontakt.css';
-import background1 from './media/AboutSectionOne.jpg';
 
 const Kontakt = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_vo1647c', 'template_kt48a2k', form.current, {
+        publicKey: 'USr9U7luQ11O0kr6V' ,
+    })
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log('Message sent!');
+          form.current.reset(); // Reset the form fields
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        }
+      );
+  };
+
   return (
     <div className="kontakt-container">
       <div className="section section-one">
@@ -10,21 +31,17 @@ const Kontakt = () => {
         <p>Completați acest formular de contact rapid și vă vom contacta imediat.</p>
       </div>
       <div className="form-section">
-        <form>
-          <label htmlFor="email">E-mail*</label>
-          <input type="email" id="email" name="email" required />
-          
-          <label htmlFor="role">Rol*</label>
-          {/* Asigură-te că adaugi input/select pentru rol */}
-          <input type="text" id="role" name="role" required />
+        <form ref={form} onSubmit={sendEmail}>
+          <label>Name</label>
+          <input type="text" name="user_name" required />
 
-          <label htmlFor="discussion">Ce ați dori să discutați?</label>
-          <textarea id="discussion" name="discussion"></textarea>
+          <label>Email</label>
+          <input type="email" name="user_email" required />
 
-          <label htmlFor="how-heard">Cum ați auzit despre noi?</label>
-          <textarea id="how-heard" name="how-heard"></textarea>
+          <label>Message</label>
+          <textarea name="message" required></textarea>
 
-          <button type="submit" className="custom-button">Trimite</button>
+          <input type="submit" value="Send" className="custom-button" />
         </form>
         <div className="info-section">
           <p>Dacă aveți o întrebare despre cum funcționează platforma [Site Name] și sunteți interesat să vorbiți cu un membru al echipei noastre de vânzări, trebuie doar să completați acest formular și vă vom contacta astăzi.</p>

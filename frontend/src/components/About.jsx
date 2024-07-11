@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import background1 from './media/AboutSectionOne.jpg';
+
 import background2 from './media/AboutSectionTow.jpg';
 import background3 from './media/AboutSectionTree.jpg';
 import background4 from './media/AboutSectionFour.png';
@@ -68,3 +68,6 @@ const About = () => {
 };
 
 export default About;
+
+
+

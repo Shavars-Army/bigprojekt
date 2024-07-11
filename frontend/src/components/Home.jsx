@@ -1,39 +1,42 @@
 import React from 'react';
-import './Home.css'; // Importă fișierul CSS pentru funcția de stil
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import backgroundImage from './media/web binar 1 deget.jpg'; // Importă imaginea
+import './Home.css'; // Import your CSS file for styling
 
 function Home() {
     return (
         <div className="home-container">
-            <div className="vertical-text">
-                <span>Follow us on Social Media</span>
-                <div className="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+            <aside className="sidebar">
+                <div className="sidebar-content">
+                    <p className="sidebar-title">Follow on Social Media</p>
+                    <div className="social-icons">
+                        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-tiktok"></i></a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon"><i className="fab fa-instagram"></i></a>
+                        
+                    </div>
                 </div>
-            </div>
-            <header className="home-header" style={{ backgroundImage: `url(${backgroundImage})` }}>
-                <div className="header-content">
-                    <h1>Discover places near you</h1>
-                    <div className="sub-header">This is the best guide of your city</div>
-                </div>
+            </aside>
+            <header className="home-header">
+                
+                    <h1>Discover your place</h1>
+                    <p>This is the best Conference platform</p>
+                
             </header>
             <section className="features-section">
-                <div className="feature-card" onClick={() => window.location.href = '/hotels'}>Hotels</div>
-                <div className="feature-card" onClick={() => window.location.href = '/restaurants'}>Restaurants</div>
-                <div className="feature-card" onClick={() => window.location.href = '/shopping'}>Shopping</div>
-                <div className="feature-card" onClick={() => window.location.href = '/beauty-spa'}>Beauty & Spa</div>
-                <div className="feature-card" onClick={() => window.location.href = '/calendar'}>Calendar</div>
+                <div className="feature-card"><a href="#">Buton 1</a></div>
+                <div className="feature-card"><a href="#">Buton 2</a></div>
+                <div className="feature-card"><a href="#">Buton 3</a></div>
+                <div className="feature-card"><a href="#">Buton 4</a></div>
+                <div className="feature-card"><a href="#">Buton 5</a></div>
             </section>
             <section className="discover-section">
-                <h2>Discover your city with <span className="brand-name" onClick={() => window.location.href = '/your-page-url'}>YOUR SITE NAME</span></h2>
+                <h2>Welcome to the future</h2>
             </section>
         </div>
     );
 }
 
 export default Home;
+
 

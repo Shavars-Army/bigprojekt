@@ -46,7 +46,10 @@ function MyNavbar({ user, setUser }) {
     };
 
     return (
-        <Navbar fixed="top" className="navbar-transparent" expand="lg">
+        <Navbar fixed="top" className="navbar-custom" expand="lg">
+            <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
+                LOGO {/* Modify this text to change the brand name */}
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -56,7 +59,8 @@ function MyNavbar({ user, setUser }) {
                     <Nav.Link as={Link} to="/about" className="page-scroll">About us</Nav.Link>
                     <Nav.Link as={Link} to="/kontakt" className="page-scroll">Kontakt</Nav.Link>
                 </Nav>
-                <Nav>
+                <Nav className="ml-auto nav-right">
+                    <Nav.Link as={Link} to="/search" className="page-scroll">Search</Nav.Link>
                     {user ? (
                         <>
                             <Nav.Link>Hello {user}</Nav.Link>
@@ -64,22 +68,10 @@ function MyNavbar({ user, setUser }) {
                         </>
                     ) : (
                         <>
-                            <Nav.Link as={Link} to="/signin" className="page-scroll">Login</Nav.Link>
-                            <Nav.Link as={Link} to="/register" className="page-scroll">Register</Nav.Link>
+                            <Nav.Link as={Link} to="/signin" className="btn-custom">Sign In</Nav.Link>
+                            <Nav.Link as={Link} to="/register" className="btn-custom">Register</Nav.Link>
                         </>
                     )}
-                    <NavDropdown
-                        title="Profil"
-                        id="basic-nav-dropdown"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                        show={showSubMenu}
-                    >
-                        <NavDropdown.Item as={Link} to="/benutzerkonto" className="page-scroll">Benutzerkonto</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/zahlungsverlauf" className="page-scroll">Zahlungsverlauf</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/nachrichten" className="page-scroll">Nachrichten</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/einstellungen" className="page-scroll">Einstellungen</NavDropdown.Item>
-                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
@@ -87,3 +79,8 @@ function MyNavbar({ user, setUser }) {
 }
 
 export default MyNavbar;
+
+
+
+
+
