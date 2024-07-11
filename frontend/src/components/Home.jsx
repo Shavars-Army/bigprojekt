@@ -134,43 +134,6 @@ const Home = ({ user }) => {
   }
 
   // Wenn ein Event ausgewählt ist, zeige die Detailansicht an
-  if (selectedEvent) {
-    return (
-      <div className="home-container">
-        <div>
-        <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr><hr></hr>
-          <hr></hr>
-          <hr></hr>
-          <hr></hr></div>
-        <div className="welcome-message">
-         <div>
-          <hr></hr></div> 
-
-          <h1>Welcome to the Home Page, <span className="user-name">{user}!</span></h1>
-        </div>
-        <div className="conference-details">
-          <h2>Conference Details</h2>
-          <p><strong>Name:</strong> {selectedEvent.name}</p>
-          <p><strong>Start Date:</strong> {selectedEvent.startdate.toLocaleDateString()}</p>
-          <p><strong>End Date:</strong> {selectedEvent.enddate.toLocaleDateString()}</p>
-          <p><strong>Start Time:</strong> {selectedEvent.starttime}</p>
-          <p><strong>End Time:</strong> {selectedEvent.endtime}</p>
-          <p><strong>Description:</strong> {selectedEvent.description}</p>
-          <p><strong>Location:</strong> {selectedEvent.location}</p>
-          <p><strong>Link:</strong> {selectedEvent.link}</p>
-        
-          
-        </div>
-      </div>
-    );
-  }
 
   // Standardansicht mit Konferenzkacheln und Kalender
   return (
