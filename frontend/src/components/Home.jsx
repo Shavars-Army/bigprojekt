@@ -47,6 +47,7 @@ const Home = ({ user }) => {
         startdate: new Date(item.startdate),
         enddate: new Date(item.enddate),
       }));
+      modifiedData.sort((a, b) => a.startdate - b.startdate);
 
       setData(modifiedData);
       setLoading(false);
