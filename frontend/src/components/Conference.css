@@ -46,18 +46,3 @@
   .calendar-event {
     background-color: #add8e6; /* Example background color for events */
   }
-
-  .vertical-navbar {
-    width: 150px;
-    height: 650px;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #f0f2f5;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 15px;
-  }

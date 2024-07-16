@@ -10,8 +10,8 @@ const Kontakt = () => {
 
     emailjs
       .sendForm('service_vo1647c', 'template_kt48a2k', form.current, {
-        publicKey: 'kxnKAqBqfqr5mxlU8' ,
-    })
+        publicKey: 'kxnKAqBqfqr5mxlU8',
+      })
       .then(
         (result) => {
           console.log(result.text);
@@ -26,9 +26,9 @@ const Kontakt = () => {
 
   return (
     <div className="kontakt-container">
-      <div className="section section-one">
-        <h1>Ajungeți la [Site Name] peste tot globul</h1>
-        <p>Completați acest formular de contact rapid și vă vom contacta imediat.</p>
+      <div className="section-one">
+        <h1>Reach [Site Name] all over the globe</h1>
+        <p>Fill out this quick contact form and we will get in touch with you immediately.</p>
       </div>
       <div className="form-section">
         <form ref={form} onSubmit={sendEmail}>
@@ -44,10 +44,10 @@ const Kontakt = () => {
           <input type="submit" value="Send" className="custom-button" />
         </form>
         <div className="info-section">
-          <p>Dacă aveți o întrebare despre cum funcționează platforma [Site Name] și sunteți interesat să vorbiți cu un membru al echipei noastre de vânzări, trebuie doar să completați acest formular și vă vom contacta astăzi.</p>
-          <p>Dacă trimiteți o cerere de propuneri, vă rugăm să ne contactați prin <a href="mailto:email@example.com">e-mail</a>.</p>
-          <p>Dacă sunteți client și aveți nevoie de asistență tehnică, vă rugăm să discutați cu echipa de asistență de la <a href="#">Backstage</a>.</p>
-          <p>Dacă aveți probleme tehnice la participarea la un eveniment [Site Name], vă rugăm să consultați <a href="#">Ghidul nostru de ajutor pentru eveniment</a>.</p>
+          <p>If you have a question about how the [Site Name] platform works and are interested in speaking with a member of our sales team, simply fill out this form and we will contact you today.</p>
+          <p>If you are submitting a request for proposals, please contact us.</p>
+          <p>If you are a customer and need technical support, please speak with the support team at .</p>
+          <p>If you are experiencing technical difficulties participating in a [Site Name] event, please check our .</p>
         </div>
       </div>
     </div>

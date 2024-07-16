@@ -3,8 +3,6 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import "./Conference.css";
 import { Modal, Button } from 'react-bootstrap';
-import JitsiMeetComponent from './JitsiMeetComponent';
-import { Link } from "react-router-dom";
 
 const Conference = ({ user }) => {
   const [data, setData] = useState([]);
@@ -222,12 +220,6 @@ const Conference = ({ user }) => {
       ) : (
         <div className="sidebar">
           <button onClick={openCreateForm}>Create Conference</button>
-          <nav>
-          <ul>
-            <li><Link to="/jitsimeetcomponent">1 laufende Konferenz:<br />
-                                                Beitreten</Link></li>
-          </ul>
-          </nav>
           <label>
               Search by Name/Description:
               <input type="text" name="" value={search}onChange={(e) => setSearch(e.target.value)} required />

@@ -3,15 +3,34 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background: url('./media/retea1.jpg') no-repeat center center/cover; /* Imaginea de fundal */
+  background-attachment: fixed; /* Face ca imaginea de fundal să fie statică */
+  color: #fff; /* Setează textul la alb pentru întregul container */
+}
+
+.page-title {
+  font-size: 2.5em;
+  margin-top: 150px; /* Crește margin-top pentru a coborî textul */
+  text-align: center;
+  color: #fff; /* Ajustează culoarea textului pentru a fi vizibil */
+}
+
+.page-subtitle {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 10px 20px 0; /* Elimină marginul de jos */
+  color: #fff; /* Ajustează culoarea textului pentru a fi vizibil */
 }
 
 .section {
-  padding: 50px;
-  color: black;
+  padding: 0; /* Elimină padding-ul de sus și jos pentru secțiuni */
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background: transparent; /* Fundal complet transparent */
+  color: #fff; /* Setează textul la alb pentru secțiuni */
+  margin: 0; /* Elimină marginile */
 }
 
 .section-one {
@@ -20,6 +39,9 @@
   background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
   position: relative;
   color: rgb(255, 255, 255);
+  padding: 0; /* Elimină padding-ul de sus și jos */
+  box-sizing: border-box;
+  margin-top: -230px; /* Ajustează această valoare pentru a ridica sau coborî secțiunea */
 }
 
 .section-two, .section-three, .section-four, .section-five {
@@ -30,6 +52,9 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  background: transparent; /* Fundal complet transparent */
+  padding: 20px 0; /* Adaugă padding de sus și jos pentru secțiuni */
+  box-sizing: border-box;
 }
 
 .section-two .content, .section-three .content, .section-four .content {
@@ -44,6 +69,8 @@
   width: 45%;
   height: auto;
   max-width: 100%;
+  margin: 0; /* Elimină padding-ul pentru imagini */
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); /* Adaugă formă hexagonală */
 }
 
 .section-two .text-right, .section-three .text-left, .section-four .text-right {
@@ -51,6 +78,7 @@
   padding: 20px;
   box-sizing: border-box;
   text-align: left;
+  color: #fff; /* Setează textul la alb pentru secțiuni */
 }
 
 .section-five {
@@ -73,6 +101,10 @@
   object-fit: cover;
 }
 
+.section-five .images-container img:not(:last-child) {
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%); /* Adaugă formă hexagonală pentru toate imaginile, cu excepția ultimei */
+}
+
 @media (max-width: 768px) {
   .section-two .image-left, .section-three .image-right, .section-four .image-left,
   .section-two .text-right, .section-three .text-left, .section-four .text-right {
@@ -85,7 +117,7 @@
   }
 
   .section-two .image-left, .section-three .image-right, .section-four .image-left {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Reduce margin-bottom pentru imagini */
   }
 }
 
@@ -101,7 +133,7 @@ ul li {
 .custom-button {
   display: inline-block;
   padding: 10px 20px;
-  background: url('./media/AboutSectionOne.jpg') no-repeat center center/cover;
+  background-color: #007bff;
   color: white;
   border: none;
   text-decoration: none;
@@ -114,4 +146,23 @@ ul li {
 .custom-button:hover {
   background-color: darkblue;
   color: lightgray;
-};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

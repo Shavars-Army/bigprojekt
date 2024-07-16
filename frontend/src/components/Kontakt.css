@@ -1,87 +1,106 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .kontakt-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-  
-  .section-one {
-    text-align: center;
-    width: 100%;
-    background: url('./media/web\ binar\ 1\ deget.jpg') no-repeat center center/cover; /* Replace 'YourBackgroundImage.jpg' with your image filename */
-    position: relative;
-    color: rgb(255, 255, 255);
-    padding: 50px;
-    min-height: 50vh;
-    height: 50vh; /* Ensure it covers half the screen height */
-  }
-  
-  .form-section {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 2rem;
-    flex-grow: 1;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    width: 40%; /* Adjusted to give more space to the form */
-    margin-right: 2rem;
-  }
-  
-  form label {
-    margin-bottom: 0.5rem;
-  }
-  
-  form input,
-  form textarea {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .custom-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #D8BFD8; /* Lilac color */
-    color: white;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 8px;
-    transition: background-color 0.25s, color 0.25s;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
-  .custom-button:hover {
-    background-color: #643cd3; /* Slightly darker lilac for hover effect */
-    color: lightgray;
-  }
-  
-  .info-section {
-    width: 55%; /* Adjusted to give more space to the info section */
-    background-color: rgba(149, 103, 201, 0); /* Semi-transparent lilac color */
-    padding: 1rem;
-    border-radius: 8px;
-  }
-  
-  .info-section p {
-    margin-bottom: 3rem;
-    font-size: 1.2rem; /* Increase font size */
-  }
-  
-  
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('./media/lila_mesage.jpg') no-repeat center center fixed; /* Adaugă imaginea de fundal */
+  background-size: cover; /* Asigură că imaginea acoperă întreaga pagină */
+  color: white; /* Setează textul la alb pentru body */
+}
+
+.kontakt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: transparent; /* Fundal complet transparent */
+  color: white; /* Setează textul la alb pentru container */
+}
+
+.section-one {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  color: white; /* Setează textul la alb pentru această secțiune */
+  padding: 50px;
+  min-height: 50vh;
+  height: 50vh; /* Ensure it covers half the screen height */
+}
+
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+  color: white; /* Setează textul la alb pentru această secțiune */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%; /* Adjusted to give more space to the form */
+  margin-right: 2rem;
+  color: white; /* Setează textul la alb pentru formular */
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  color: white; /* Setează textul la alb pentru etichete */
+}
+
+form input,
+form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black; /* Textul din inputuri și textareas va fi negru */
+  background-color: white; /* Background-ul inputurilor și textareas va fi alb pentru contrast */
+}
+
+.custom-button {
+  padding: 0.5rem 1rem; /* Ajustează padding-ul pentru a fi mai mic */
+  background-color: #39b6f0; /* Lilac color */
+  color: white;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.25s, color 0.25s;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100px; /* Ajustează lățimea pentru a se potrivi textului */
+  height: auto; /* Ajustează înălțimea pentru a se potrivi textului */
+  line-height: 1; /* Asigură alinierea textului vertical */
+}
+
+.custom-button:hover {
+  background-color: #643cd3; /* Slightly darker lilac for hover effect */
+  color: lightgray;
+}
+
+.info-section {
+  width: 55%; /* Adjusted to give more space to the info section */
+  padding: 1rem;
+  border-radius: 8px;
+  background: transparent; /* Fundal complet transparent */
+  color: white; /* Setează textul la alb pentru această secțiune */
+}
+
+.info-section p {
+  margin-bottom: 3rem;
+  font-size: 1.2rem; /* Increase font size */
+  color: white; /* Setează textul la alb pentru paragrafe */
+}
+
+.info-section a {
+  color: white; /* Setează linkurile la alb */
+}
+
+.info-section a:hover {
+  color: lightgray; /* Schimbă culoarea la hover pentru a evidenția linkurile */
+}

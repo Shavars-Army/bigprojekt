@@ -4,11 +4,13 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
-import Nachrichten from './Nachrichten'; // Importieren Sie Ihre Nachrichten-Komponente hier
+import Nachrichten from './Nachrichten';
+import logo from './media/logo.png'; // Importă imaginea logo-ului
 
 function MyNavbar({ user, setUser }) {
     const [showSubMenu, setShowSubMenu] = useState(false);
-    const [newEmailNotification, setNewEmailNotification] = useState(false); // State für Benachrichtigung über neue E-Mails
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+    const [visible, setVisible] = useState(true);
     const timeoutRef = useRef(null);
     const navigate = useNavigate();
 
@@ -24,6 +26,17 @@ function MyNavbar({ user, setUser }) {
             setShowSubMenu(false);
         }, 500);
     };
+
+    const handleScroll = () => {
+        const currentScrollPos = window.pageYOffset;
+        setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+        setPrevScrollPos(currentScrollPos);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [prevScrollPos, visible, handleScroll]);
 
     useEffect(() => {
         const handleClick = (event) => {
@@ -46,16 +59,16 @@ function MyNavbar({ user, setUser }) {
     }, []);
 
     const handleLogout = () => {
-        setUser(null); 
+        setUser(null);
         localStorage.removeItem('userEmail');
-        navigate('/'); // Zurück zur Startseite navigieren
-        window.location.reload(); // Seite aktualisieren, um den Benutzerzustand zu löschen
+        navigate('/');
+        window.location.reload();
     };
 
     return (
-        <Navbar fixed="top" className="navbar-transparent" expand="lg">
+        <Navbar fixed="top" className={`navbar-transparent ${visible ? 'navbar-visible' : 'navbar-hidden'}`} expand="lg">
             <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
-            LOGO {/* Modify this text to change the brand name */}
+                <img src={logo} alt="Logo" className="navbar-logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -99,3 +112,6 @@ function MyNavbar({ user, setUser }) {
 }
 
 export default MyNavbar;
+
+
+

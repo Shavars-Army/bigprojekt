@@ -22,6 +22,18 @@
   margin-right: 30px;
 }
 
+.navbar-logo {
+  height: 40px; /* Ajustează înălțimea după preferințe */
+  width: auto;
+  background-color: transparent; /* Asigură-te că fundalul este transparent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05); /* Mărește ușor imaginea */
+  box-shadow: none; /* Elimină orice umbră */
+}
+
 .navbar a:hover {
   background-color: #7B1FA2; /* Slightly darker purple on hover */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
@@ -64,3 +76,18 @@
   background-color: #7B1FA2; /* Slightly darker purple on hover */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
+
+
+.navbar-transparent {
+  transition: top 0.3s;
+}
+
+.navbar-visible {
+  top: 0;
+}
+
+.navbar-hidden {
+  top: -80px; /* Ascunde bara de navigare */
+}
+
+
